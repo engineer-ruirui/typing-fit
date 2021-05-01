@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SimpleKeyboardModule } from './components/simple-keyboard/simple-keyboard.module';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SimpleKeyboardModule
   ]
 })
 export class BusinessModule { }

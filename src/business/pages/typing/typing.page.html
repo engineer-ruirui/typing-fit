@@ -1,18 +1,28 @@
-<form [formGroup]="form">
-  <div>
-    {{questionString}}
-  </div>
-  <div>
-    <input type="text" formControlName="inputString">
-  </div>
-  <div (click)="submit()">
-    submit
-  </div>
-  <p>
-    Form Status: {{ form.status }}
-  </p>
-</form>
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+  samplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesamplesample
+  <form [formGroup]="form">
+    <div>
+      {{questionString}}
+    </div>
+    <div>
+      <input type="text" formControlName="inputString">
+    </div>
+    <div (click)="submit()">
+      submit
+    </div>
+    <p>
+      Form Status: {{ form.status }}
+    </p>
+  </form>
+<app-simple-keyboard></app-simple-keyboard>
 
-<p>
-  制限時間：{{timer}}
-</p>
+  <p>
+    制限時間：{{timer}}
+  </p>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>

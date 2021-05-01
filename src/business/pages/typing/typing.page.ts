@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators, AbstractControl } from '@angular/forms';
-
 @Component({
   selector: 'app-typing',
   templateUrl: './typing.page.html',
@@ -17,7 +16,6 @@ export class TypingPage implements OnInit {
     'I love javascript',
     'This is my app'
   ];
-
 
   constructor(
     private fb: FormBuilder

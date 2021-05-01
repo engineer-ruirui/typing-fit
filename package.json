@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.2.12",
     "@angular/router": "~11.2.12",
     "rxjs": "~6.6.0",
+    "simple-keyboard": "^3.0.53",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },
