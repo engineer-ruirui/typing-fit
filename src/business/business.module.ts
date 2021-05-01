@@ -6,7 +6,7 @@ import { TypingPage } from './pages/typing/typing.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
   {
@@ -26,7 +26,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ]
 })
 export class BusinessModule { }
