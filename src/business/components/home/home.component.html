@@ -1,20 +1,2 @@
 <p>home works!</p>
-
-<form [formGroup]="form">
-  <div>
-    {{questionString}}
-  </div>
-  <div>
-    <input type="text" formControlName="inputString">
-  </div>
-  <div (click)="submit()">
-    submit
-  </div>
-  <p>
-    Form Status: {{ form.status }}
-  </p>
-</form>
-
-<p>
-  制限時間：{{timer}}
-</p>
+<button mat-raised-button color="primary" (click)="openDialog()">開始する</button>
