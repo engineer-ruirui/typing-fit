@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup,FormBuilder,Validators, AbstractControl } from '@angular/forms';
 @Component({
   selector: 'app-typing',
   templateUrl: './typing.page.html',
-  styleUrls: ['./typing.page.scss']
+  styleUrls: ['./typing.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TypingPage implements OnInit {
-  public questionString: string = '';
+  public targetValue: string = '';
+  public inputValue: string = '';
+  public enterStringCount: number;
+
   public form: FormGroup;
   public timer:number = 20;
-  public count:number = 0;
+
+  // TODO: サンプル
   private list = [
     'Hello world',
     'Good',
@@ -21,7 +26,7 @@ export class TypingPage implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initForm();
     this.init();
     setInterval(()=>{
@@ -30,17 +35,20 @@ export class TypingPage implements OnInit {
      ,1000
     )
 
-    this.form.valueChanges.subscribe((v)=>{
-      console.log(v);
-      console.log(this.form.status);
-      if (this.form.status === 'VALID') {
+    this.form.valueChanges.subscribe((e)=>{
+      console.log(e);
+      if (e.inputString === this.targetValue) {
         this.init();
       }
     })
   }
 
   private init() {
-    this.questionString = this.list[Math.floor(Math.random() * this.list.length)];
+    // 入力文字数を初期化
+    this.enterStringCount = 0;
+    // 問題を設定
+    this.targetValue = this.list[Math.floor(Math.random() * this.list.length)];
+    // フォームを初期化
     this.form.controls['inputString'].setValue('');
   }
 
@@ -50,13 +58,22 @@ export class TypingPage implements OnInit {
     })
   }
 
+
   private equalStringValidator(control: AbstractControl) {
     const val = control.value;
-    return val !== this.questionString ? { equalStringValidator: true } : null;
+    return val !== this.targetValue ? { equalStringValidator: true } : null;
   }
 
   public submit() {
     console.log('form: ' + this.form);
   }
 
+  public onKeydown(e: any) {
+    if (e.key !== this.targetValue.charAt(this.enterStringCount)) {
+      console.log(e);
+      e.preventDefault();
+    } else {
+      this.enterStringCount ++;
+    }
+  }
 }

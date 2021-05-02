@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SimpleKeyboardModule } from './components/simple-keyboard/simple-keyboard.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 const routes: Routes = [
   {
@@ -29,7 +31,9 @@ const routes: Routes = [
     MatButtonModule,
     MatDialogModule,
     FlexLayoutModule,
-    SimpleKeyboardModule
+    SimpleKeyboardModule,
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class BusinessModule { }
