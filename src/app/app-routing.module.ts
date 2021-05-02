@@ -6,16 +6,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('src/business/business.module').then((m) => m.BusinessModule)
-  }
-]
+      import('src/business/business.module').then((m) => m.BusinessModule),
+  },
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

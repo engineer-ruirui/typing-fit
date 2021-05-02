@@ -1,10 +1,15 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup,FormBuilder,Validators, AbstractControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
 @Component({
   selector: 'app-typing',
   templateUrl: './typing.page.html',
   styleUrls: ['./typing.page.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class TypingPage implements OnInit {
   public targetValue: string = '';
@@ -12,35 +17,26 @@ export class TypingPage implements OnInit {
   public enterStringCount: number;
 
   public form: FormGroup;
-  public timer:number = 20;
+  public timer: number = 20;
 
   // TODO: サンプル
-  private list = [
-    'Hello world',
-    'Good',
-    'I love javascript',
-    'This is my app'
-  ];
+  private list = ['Hello world', 'Good', 'I love javascript', 'This is my app'];
 
-  constructor(
-    private fb: FormBuilder
-  ) { }
+  constructor(private fb: FormBuilder) {}
 
   public ngOnInit(): void {
     this.initForm();
     this.init();
-    setInterval(()=>{
-      this.timer = this.timer -1;
-    }
-     ,1000
-    )
+    setInterval(() => {
+      this.timer = this.timer - 1;
+    }, 1000);
 
-    this.form.valueChanges.subscribe((e)=>{
+    this.form.valueChanges.subscribe((e) => {
       console.log(e);
       if (e.inputString === this.targetValue) {
         this.init();
       }
-    })
+    });
   }
 
   private init() {
@@ -54,10 +50,12 @@ export class TypingPage implements OnInit {
 
   private initForm(): void {
     this.form = this.fb.group({
-      inputString: [null, [Validators.required, this.equalStringValidator.bind(this)]]
-    })
+      inputString: [
+        null,
+        [Validators.required, this.equalStringValidator.bind(this)],
+      ],
+    });
   }
-
 
   private equalStringValidator(control: AbstractControl) {
     const val = control.value;
@@ -73,7 +71,7 @@ export class TypingPage implements OnInit {
       console.log(e);
       e.preventDefault();
     } else {
-      this.enterStringCount ++;
+      this.enterStringCount++;
     }
   }
 }

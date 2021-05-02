@@ -3,26 +3,18 @@
   <!-- フォーム -->
   <form [formGroup]="form">
     <div fxLayout="column" fxLayoutAlign="space-around center">
+      <div class="question-text">targetValue: {{targetValue}}</div>
+      <div class="question-text">inputValue: {{inputValue}}</div>
       <div class="question-text">
-        targetValue: {{targetValue}}
+        <input formControlName="inputString" (keydown)="onKeydown($event)" />
       </div>
-      <div class="question-text">
-        inputValue: {{inputValue}}
-      </div>
-      <div class="question-text">
-        <input formControlName="inputString" (keydown)="onKeydown($event)">
-      </div>
-      <p>
-        Form Status: {{ form.status }}
-      </p>
+      <p>Form Status: {{ form.status }}</p>
     </div>
   </form>
   <!-- ソフトウェアキーボード -->
   <app-simple-keyboard></app-simple-keyboard>
   <!-- タイマー -->
-  <p>
-    制限時間：{{timer}}
-  </p>
+  <p>制限時間：{{timer}}</p>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>

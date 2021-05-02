@@ -9,20 +9,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SimpleKeyboardModule } from './components/simple-keyboard/simple-keyboard.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-  }
-]
+    component: HomeComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    TypingPage
-  ],
+  declarations: [HomeComponent, TypingPage],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -33,7 +30,7 @@ const routes: Routes = [
     FlexLayoutModule,
     SimpleKeyboardModule,
     MatToolbarModule,
-    MatIconModule
-  ]
+    MatIconModule,
+  ],
 })
-export class BusinessModule { }
+export class BusinessModule {}
